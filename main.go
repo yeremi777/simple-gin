@@ -6,6 +6,7 @@ import (
 
 	"simple-gin/configs"
 	_ "simple-gin/migrations"
+	"simple-gin/src/router"
 
 	"github.com/gin-gonic/gin"
 )
@@ -41,11 +42,13 @@ func main() {
 	configs.LoadDB()
 
 	r := gin.Default()
+	api := r.Group("api")
 
 	r.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{"message": "OK"})
 	})
-	// api := r.Group("api")
+
+	router.ProjectRouter(api.Group("/projects"))
 
 	r.Run(fmt.Sprintf(":%v", configs.ENV.PORT))
 }
