@@ -2,6 +2,6 @@
 
 go build -o ./build/app
 
-chmod +x ./build/app
+chmod +x ./build
 
-./build
+./build/app
