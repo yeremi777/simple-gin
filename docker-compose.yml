@@ -1,0 +1,15 @@
+services:
+  simple-gin-image:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: simple-gin-image
+    ports:
+      - "9999:9999"
+    environment:
+      - GO_APP_PORT=${PORT}
+      - GO_DATABASE_HOST=${DB_HOST}
+      - GO_DATABASE_PORT=${DB_PORT}
+      - GO_DATABASE_USERNAME=${DB_USERNAME}
+      - GO_DATABASE_PASSWORD=${DB_PASSWORD}
+      - GO_DATABASE_NAME=${DB_DATABASE}
