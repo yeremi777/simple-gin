@@ -1,9 +1,9 @@
 services:
-  simple-gin-image:
+  sgin-image:
     build:
       context: .
       dockerfile: Dockerfile
-    image: simple-gin-image
+    image: sgin-image
     ports:
       - "9999:9999"
     environment:

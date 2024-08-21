@@ -1,6 +1,6 @@
 FROM golang:1.23-alpine
 
-WORKDIR /app
+WORKDIR /source-app
 
 COPY . ./
 RUN go mod download
@@ -9,7 +9,7 @@ RUN go build -o /app/
 
 WORKDIR /
 
-RUN rm -rf /app
+RUN rm -rf /source-app
 
 ARG GO_APP_PORT=9999
 ARG GO_DATABASE_HOST=127.0.0.1
@@ -27,4 +27,4 @@ ENV GO_DATABASE_NAME=${DB_DATABASE}
 
 EXPOSE 9999
 
-CMD ["/app/gin-crud"]
+CMD ["/app/simple-gin"]
